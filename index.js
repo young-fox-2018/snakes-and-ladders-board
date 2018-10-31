@@ -1,26 +1,22 @@
 function generateBoard(dimensi){
     let temp = []
+    let count = []
+    for ( let i = dimensi-1; i >= 0; i--) {
+        count = []
+        for( let j = 1; j<=dimensi; j++){
+            if(i%2 == 0){
 
-    let counter = dimensi*dimensi
+                count.push((i*dimensi)+j)
+            }else {
 
-    for ( let i = 0 ; i<dimensi; i++ ) {
-        temp.push([])
+                count.push((i*dimensi)+((dimensi+1)-j))
 
-        for ( let j = 0; j<dimensi; j++ ) {
-            if(i%2 == 0) {
-                temp[i].push(counter)
-                counter -= 1
-            } else if (i%2 != 0) {
-                temp[i].push(counter)
-                counter += 1
             }
         }
-
-        counter = ( i%2 == 0 ) ? counter-dimensi+1 : counter-dimensi-1
-        
+        temp.push(count)
     }
 
     return temp
 }
 
-console.log(generateBoard(4))
+console.log(generateBoard(15))
