@@ -4,12 +4,12 @@ function generateBoard(row){
 
     for(var i = row-1; i >=0; i--){
         cont =[];
-        for(var j = 1; j <= 10; j++){
+        for(var j = 1; j <= row; j++){
             
             if(i%2 == 0){
-                cont.push((i*10)+ j)
+                cont.push((i*row)+ j)
             }else{
-                cont.unshift((i*10)+ j)
+                cont.push((i*row)+((row+1)-j))
             }
         }
         result.push(cont)
@@ -20,4 +20,4 @@ function generateBoard(row){
     return result
 }
 
-console.log(generateBoard(10));
+console.log(generateBoard(15));
