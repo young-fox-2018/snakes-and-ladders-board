@@ -11,7 +11,7 @@ function generateBoard(n) {
                     break;
 
                 default:
-                    arr.unshift(j)
+                    leftUnshift(j)
                     break;
             }
         }
@@ -30,6 +30,16 @@ function generateBoard(n) {
 
 
     return result
+
+    //ALTERNATIF .unshift()
+    function leftUnshift(params) {
+        for (let i = arr.length-1; i >= 0; i--) {
+            arr[i+1] = arr[i]
+        }
+        arr[0] = params
+    }
 }
+
+
 
 console.log(generateBoard(10));
